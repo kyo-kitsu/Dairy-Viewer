@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dairy Herd Inspector v62 — Mobile Viewer</title>
+    <title>Dairy Herd Inspector v64 — Mobile Viewer</title>
     <style>
         :root {
             --bg-color: #F8FAFC;
@@ -370,8 +370,8 @@
             <div class="brand-container">
                 <span class="brand-logo">🐄</span>
                 <div>
-                    <div class="brand-title">Dairy Herd Inspector v62</div>
-                    <div class="brand-sub">mobile-v62_web_viewer_app_v207</div>
+                    <div class="brand-title">Dairy Herd Inspector v64</div>
+                    <div class="brand-sub">mobile-v64_web_viewer_app_v207</div>
                 </div>
             </div>
             <span class="tag-read-only">Read-Only</span>
@@ -2454,7 +2454,20 @@
                             <span>🍕 Distribuição dos Custos Operacionais Reais</span>
                             <span style="font-size:10px; color:var(--text-secondary);">Set/2026</span>
                         </div>
-                        <div style="padding: 16px; text-align: center; background: rgba(37, 99, 235, 0.06); border-radius: 10px; font-size: 11px; font-weight: 700; color: var(--text-secondary);">Sem lançamentos de despesas reais registrados para o período (Set/2026)</div>
+                        <div class="donut-wrapper">
+            <svg width="150" height="150" viewBox="0 0 36 36" style="transform: rotate(-90deg); border-radius: 50%;">
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#2563EB" stroke-width="5" stroke-dasharray="52.9 47.1" stroke-dashoffset="0"></circle>
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#F59E0B" stroke-width="5" stroke-dasharray="26.9 73.1" stroke-dashoffset="-52.9"></circle>
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#64748B" stroke-width="5" stroke-dasharray="5.0 95.0" stroke-dashoffset="-79.8"></circle>
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#EAB308" stroke-width="5" stroke-dasharray="15.2 84.8" stroke-dashoffset="-84.8"></circle>
+            </svg>
+            <div class="legend-grid">
+                <div class="legend-item"><div class="legend-dot" style="background:#2563EB;"></div><span>Insumos: <b>R$ 6.879,00 (52.9%)</b></span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#F59E0B;"></div><span>Folha: <b>R$ 3.500,50 (26.9%)</b></span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#64748B;"></div><span>Serviços: <b>R$ 650,00 (5.0%)</b></span></div>
+                <div class="legend-item"><div class="legend-dot" style="background:#EAB308;"></div><span>Outros: <b>R$ 1.977,71 (15.2%)</b></span></div>
+            </div>
+        </div>
                     </div>
                 </div>
 <div class="pview pv-out2026">
@@ -11415,6 +11428,18 @@
                         <option value="Rapadura">Rapadura</option>
                     </select>
                 </div>
+                <div class="kpi-grid" style="margin-bottom:10px;">
+                    <div class="kpi-card green" style="padding:10px 12px; border-top:3px solid var(--accent-green); background:#F0FDF4;">
+                        <div class="kpi-title" style="font-size:10px; font-weight:800; color:#15803D; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">PRODUÇÃO MÉDIA REAL</div>
+                        <div class="kpi-val" id="cow-mean-real" style="font-size:15px; font-weight:800; color:#16A34A;">12,47 l/dia</div>
+                        <div class="kpi-sub" style="font-size:10px; font-weight:700; color:#15803D;">Média histórica</div>
+                    </div>
+                    <div class="kpi-card blue" style="padding:10px 12px; border-top:3px solid var(--accent-blue); background:#F0F9FF;">
+                        <div class="kpi-title" style="font-size:10px; font-weight:800; color:#0369A1; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">PICO DE LACTAÇÃO</div>
+                        <div class="kpi-val" id="cow-max-real" style="font-size:15px; font-weight:800; color:#0284C7;">23,15 l/dia</div>
+                        <div class="kpi-sub" style="font-size:10px; font-weight:700; color:#0369A1;">Máximo medido</div>
+                    </div>
+                </div>
                 <div class="kpi-grid">
                     <div class="kpi-card green" style="padding:10px 12px; border-top:3px solid var(--accent-green); background:#FFFFFF;">
                         <div class="kpi-title" style="font-size:10px; font-weight:800; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">STATUS REPRODUTIVO</div>
@@ -11441,7 +11466,7 @@
 
                 <!-- Curva de Lactação Header com Escala Vertical e Seletor de Ano -->
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; margin-bottom:8px;">
-                    <span style="font-size:11px; font-weight:800; color:var(--text-secondary);">📉 Curva de Lactação Estimada (l/mês)</span>
+                    <span style="font-size:11px; font-weight:800; color:var(--text-secondary);">📉 Curva de Lactação (Estimativa vs Real)</span>
                     <div style="display:flex; gap:4px; align-items:center;">
                         <button type="button" id="btnCowYr2026" onclick="setCowYear('2026')" style="padding:2px 8px; font-size:10px; font-weight:800; border-radius:4px; border:1px solid #2563EB; background:#2563EB; color:#FFFFFF; cursor:pointer;">2026</button>
                         <button type="button" id="btnCowYr2025" onclick="setCowYear('2025')" style="padding:2px 8px; font-size:10px; font-weight:800; border-radius:4px; border:1px solid #CBD5E1; background:#F1F5F9; color:#64748B; cursor:pointer;">2025</button>
@@ -13806,6 +13831,32 @@ function setCowYear(yr) {
             var cowObj = model.find(function(c) { return c.cow === cName; });
             if (!cowObj) return;
 
+            // 0. Calculate overall historical Produção Média Real and Pico de Lactação (l/dia) across all years (2025 + 2026)
+            var allMeasuredVals = [];
+            ['2025', '2026'].forEach(function(yKey) {
+                var mObj = cowObj['measured_d_' + yKey] || {};
+                for (var k in mObj) {
+                    var val = mObj[k];
+                    if (typeof val === 'number' && val > 0) {
+                        allMeasuredVals.push(val);
+                    }
+                }
+            });
+
+            var globalMeanReal = 0;
+            var globalMaxReal = 0;
+            if (allMeasuredVals.length > 0) {
+                var sumR = 0;
+                allMeasuredVals.forEach(function(v) {
+                    sumR += v;
+                    if (v > globalMaxReal) globalMaxReal = v;
+                });
+                globalMeanReal = sumR / allMeasuredVals.length;
+            }
+
+            setNodeText('cow-mean-real', globalMeanReal > 0 ? globalMeanReal.toFixed(2).replace('.', ',') + ' l/dia' : 'Sem dados');
+            setNodeText('cow-max-real', globalMaxReal > 0 ? globalMaxReal.toFixed(2).replace('.', ',') + ' l/dia' : 'Sem dados');
+
             // 1. Reproductive Events Parsing (Chronological & Dynamic DPP = Ins + 283d)
             var eventKeys = Object.keys(cowObj.events || {}).sort(function(a, b) {
                 var pA = a.split('-'), pB = b.split('-');
@@ -13901,59 +13952,59 @@ function setCowYear(yr) {
 
             setNodeText('cow-status', statusTitle);
             setNodeText('cow-status-sub', statusSub);
+            setNodeText('cow-ins', lastInsDate ? lastInsDate : '-');
+            setNodeText('cow-dpp', finalDPP ? 'DPP: ' + finalDPP : 'DPP: N/A');
+            setNodeText('cow-secagem', finalSecagem ? 'Secagem: ' + finalSecagem : 'Secagem: N/A');
+            setNodeText('cow-dpp-sub', lastInsDate ? 'Cálculo: Inseminação (' + lastInsDate + ') + 283 dias' : 'Sem gestação ativa');
 
-            setNodeText('cow-ins', lastInsDate || '-');
-            setNodeText('cow-ins-sub', lastInsDate ? 'Última IA/IATF' : 'Sem Inseminação Ativa');
-
-            // DPP and its date on the exact same line!
-            setNodeText('cow-dpp', finalDPP ? ('DPP: ' + finalDPP) : 'DPP: N/A');
-            setNodeText('cow-dpp-sub', lastInsDate ? ('Cálculo: Inseminação (' + lastInsDate + ') + 283 dias') : 'Sem gestação ativa');
-            setNodeText('cow-secagem', finalSecagem ? ('Secagem: ' + finalSecagem) : 'Secagem: -');
-
-            // 2. Lactation Curve Data
+            // 2. Lactation Curve Data (Estimativa vs Real in litros/dia)
             var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-            var estM = cowObj['estimates_m_' + yr] || {};
             var estD = cowObj['estimates_d_' + yr] || {};
+            var medD = cowObj['measured_d_' + yr] || {};
+            var estM = cowObj['estimates_m_' + yr] || {};
 
-            var maxVal = 0;
-            var totalLiters = 0;
-            var activeMonths = 0;
-            var peakLiters = 0;
-            var peakMonth = '-';
-            var peakDaily = 0;
-            var sumDaily = 0;
+            var maxValD = 0;
+            var totalLitersEst = 0;
+            var activeMonthsEst = 0;
+            var sumDailyReal = 0;
+            var countDailyReal = 0;
+            var peakRealDaily = 0;
+            var peakRealMonth = '-';
 
             months.forEach(function(m) {
-                var v = estM[m] || 0;
-                if (v > 0) {
-                    totalLiters += v;
-                    activeMonths++;
-                    var d_v = estD[m] || (v / 30);
-                    sumDaily += d_v;
-                    if (v > peakLiters) {
-                        peakLiters = v;
-                        peakMonth = m;
-                        peakDaily = d_v;
+                var vEst = estD[m] || 0;
+                var vMed = medD[m] || 0;
+                if (vEst > maxValD) maxValD = vEst;
+                if (vMed > maxValD) maxValD = vMed;
+
+                if (vEst > 0) {
+                    totalLitersEst += (estM[m] || (vEst * 30));
+                    activeMonthsEst++;
+                }
+                if (vMed > 0) {
+                    sumDailyReal += vMed;
+                    countDailyReal++;
+                    if (vMed > peakRealDaily) {
+                        peakRealDaily = vMed;
+                        peakRealMonth = m;
                     }
                 }
-                if (v > maxVal) maxVal = v;
             });
 
-            // Determine Y-Axis Scale
-            var yMax = 800;
-            if (maxVal > 800) yMax = 1000;
-            else if (maxVal <= 400 && maxVal > 0) yMax = 400;
-            else if (maxVal <= 600 && maxVal > 400) yMax = 600;
-            else if (maxVal === 0) yMax = 500;
+            // Determine Y-Axis Scale in litros/dia (l/d)
+            var yMaxD = 25;
+            if (maxValD > 25) yMaxD = 30;
+            else if (maxValD <= 15 && maxValD > 0) yMaxD = 15;
+            else if (maxValD <= 20 && maxValD > 15) yMaxD = 20;
+            else if (maxValD === 0) yMaxD = 20;
 
-            // Ticks
-            var t4 = yMax;
-            var t3 = Math.round(yMax * 0.75);
-            var t2 = Math.round(yMax * 0.5);
-            var t1 = Math.round(yMax * 0.25);
+            var t4 = yMaxD;
+            var t3 = Math.round(yMaxD * 0.75 * 10) / 10;
+            var t2 = Math.round(yMaxD * 0.5 * 10) / 10;
+            var t1 = Math.round(yMaxD * 0.25 * 10) / 10;
             var t0 = 0;
 
-            var yAxisCol = '<div style="display:flex; flex-direction:column; justify-content:space-between; align-items:flex-end; padding-right:6px; border-right:2px solid #CBD5E1; font-size:8px; font-weight:800; color:#64748B; min-width:30px; height:140px; padding-bottom:16px;">' +
+            var yAxisCol = '<div style="display:flex; flex-direction:column; justify-content:space-between; align-items:flex-end; padding-right:6px; border-right:2px solid #CBD5E1; font-size:8px; font-weight:800; color:#64748B; min-width:32px; height:140px; padding-bottom:16px;">' +
                 '<span>' + t4 + '</span>' +
                 '<span>' + t3 + '</span>' +
                 '<span>' + t2 + '</span>' +
@@ -13963,43 +14014,56 @@ function setCowYear(yr) {
 
             var barsHtml = '';
             months.forEach(function(m) {
-                var v = estM[m] || 0;
-                var d_v = estD[m] || 0;
-                if (v > 0) {
-                    var h = Math.min(120, Math.max(4, Math.round((v / yMax) * 120)));
-                    var topLbl = Math.round(v) + ' l';
-                    var tooltip = m + '/' + yr + ': ' + Math.round(v) + ' litros (' + d_v.toFixed(1).replace('.', ',') + ' l/dia)';
-                    barsHtml += '<div style="flex:1; min-width:20px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">' +
-                        '<span style="font-size:7px; font-weight:800; color:#15803D; margin-bottom:2px; white-space:nowrap;">' + topLbl + '</span>' +
-                        '<div style="width:75%; background:#16A34A; height:' + h + 'px; border-radius:3px 3px 0 0;" title="' + tooltip + '"></div>' +
-                        '<span style="font-size:8px; font-weight:700; margin-top:4px; color:#1E293B;">' + m + '</span>' +
-                    '</div>';
-                } else {
-                    var tooltip0 = m + '/' + yr + ': 0 l (Seca/Período pré-parto)';
-                    barsHtml += '<div style="flex:1; min-width:20px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">' +
-                        '<div style="width:75%; background:#CBD5E1; height:2px; border-radius:1px;" title="' + tooltip0 + '"></div>' +
-                        '<span style="font-size:8px; font-weight:700; margin-top:4px; color:#94A3B8;">' + m + '</span>' +
-                    '</div>';
-                }
+                var vEst = estD[m] || 0;
+                var vMed = medD[m] || 0;
+
+                var hEst = vEst > 0 ? Math.min(120, Math.max(4, Math.round((vEst / yMaxD) * 120))) : 2;
+                var hMed = vMed > 0 ? Math.min(120, Math.max(4, Math.round((vMed / yMaxD) * 120))) : 2;
+
+                var topLblEst = vEst > 0 ? vEst.toFixed(1).replace('.', ',') : '';
+                var topLblMed = vMed > 0 ? vMed.toFixed(1).replace('.', ',') : '';
+
+                var bgEst = vEst > 0 ? '#2563EB' : '#CBD5E1';
+                var bgMed = vMed > 0 ? '#16A34A' : '#CBD5E1';
+
+                var titleEst = m + '/' + yr + ' Estimativa: ' + (vEst > 0 ? vEst.toFixed(1).replace('.', ',') + ' l/dia' : 'Sem estimativa');
+                var titleMed = m + '/' + yr + ' Média Real: ' + (vMed > 0 ? vMed.toFixed(1).replace('.', ',') + ' l/dia' : 'Sem medição');
+
+                barsHtml += '<div style="flex:1; min-width:26px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">' +
+                    '<div style="display:flex; align-items:flex-end; gap:2px; width:100%; justify-content:center; height:120px;">' +
+                        '<div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">' +
+                            (vEst > 0 ? '<span style="font-size:6.5px; font-weight:800; color:#1E40AF; margin-bottom:1px; white-space:nowrap;">' + topLblEst + '</span>' : '') +
+                            '<div style="width:85%; background:' + bgEst + '; height:' + hEst + 'px; border-radius:2px 2px 0 0;" title="' + titleEst + '"></div>' +
+                        '</div>' +
+                        '<div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">' +
+                            (vMed > 0 ? '<span style="font-size:6.5px; font-weight:800; color:#15803D; margin-bottom:1px; white-space:nowrap;">' + topLblMed + '</span>' : '') +
+                            '<div style="width:85%; background:' + bgMed + '; height:' + hMed + 'px; border-radius:2px 2px 0 0;" title="' + titleMed + '"></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<span style="font-size:8px; font-weight:700; margin-top:4px; color:#1E293B;">' + m + '</span>' +
+                '</div>';
             });
 
             var chartBox = '<div style="display:flex; align-items:stretch; gap:6px; background:#FFFFFF; border:1px solid #E2E8F0; border-radius:8px; padding:10px 8px;">' +
                 yAxisCol +
-                '<div style="flex:1; display:flex; align-items:flex-end; gap:3px; height:140px; border-bottom:2px solid #CBD5E1; padding-bottom:4px; overflow-x:auto;">' +
+                '<div style="flex:1; display:flex; align-items:flex-end; gap:2px; height:140px; border-bottom:2px solid #CBD5E1; padding-bottom:4px; overflow-x:auto;">' +
                     barsHtml +
                 '</div>' +
+            '</div>' +
+            '<div style="display:flex; justify-content:center; gap:16px; margin-top:8px; font-size:10.5px; font-weight:700;">' +
+                '<div style="display:flex; align-items:center; gap:6px;"><div style="width:10px; height:10px; border-radius:2px; background:#2563EB;"></div><span>🔵 Estimativa Teórica (l/dia)</span></div>' +
+                '<div style="display:flex; align-items:center; gap:6px;"><div style="width:10px; height:10px; border-radius:2px; background:#16A34A;"></div><span>🟢 Média Medidas Reais (l/dia)</span></div>' +
             '</div>';
 
             var elSvg = document.getElementById('svgLactationContainer');
             if (elSvg) elSvg.innerHTML = chartBox;
 
             // 3. Summary indicators
-            var avgDaily = activeMonths > 0 ? (sumDaily / activeMonths) : 0;
+            var avgYearReal = countDailyReal > 0 ? (sumDailyReal / countDailyReal) : 0;
             var summaryHtml = '<div style="display:flex; justify-content:space-between; align-items:center; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:8px 12px; margin-top:8px; font-size:10px; flex-wrap:wrap; gap:8px;">' +
-                '<div>📦 <b>Total Projetado:</b> <span style="color:#16A34A; font-weight:800;">' + Math.round(totalLiters).toLocaleString('pt-BR') + ' l</span></div>' +
-                '<div>🥛 <b>Média Diária Ativa:</b> <span style="color:#1E40AF; font-weight:800;">' + avgDaily.toFixed(1).replace('.', ',') + ' l/dia</span></div>' +
-                '<div>🏔️ <b>Pico:</b> <span style="color:#D97706; font-weight:800;">' + Math.round(peakLiters) + ' l (' + peakDaily.toFixed(1).replace('.', ',') + ' l/d em ' + peakMonth + ')</span></div>' +
-                '<div>🗓️ <b>Duração:</b> <span style="color:#64748B; font-weight:800;">' + activeMonths + ' meses</span></div>' +
+                '<div>📦 <b>Total Projetado (' + yr + '):</b> <span style="color:#1E40AF; font-weight:800;">' + Math.round(totalLitersEst).toLocaleString('pt-BR') + ' l</span></div>' +
+                '<div>🥛 <b>Média Real (' + yr + '):</b> <span style="color:#16A34A; font-weight:800;">' + (avgYearReal > 0 ? avgYearReal.toFixed(1).replace('.', ',') + ' l/dia' : 'Sem medição') + '</span></div>' +
+                '<div>🏔️ <b>Pico Real (' + yr + '):</b> <span style="color:#D97706; font-weight:800;">' + (peakRealDaily > 0 ? peakRealDaily.toFixed(1).replace('.', ',') + ' l/d (' + peakRealMonth + ')' : 'Sem medição') + '</span></div>' +
             '</div>';
 
             var elSum = document.getElementById('cowSummaryContainer');
@@ -14043,7 +14107,6 @@ function setCowYear(yr) {
             if (elCountBadge) elCountBadge.innerText = eCount + (eCount === 1 ? ' evento' : ' eventos');
         }
 
-        
         function onReproMatrixSearch(query) {
             var q = (query || '').toLowerCase().trim();
             var rows = document.querySelectorAll('#tblReproMatrixBody tr');
